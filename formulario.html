@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscríbete | AFTER MUSIC</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sb-top">
+            <div class="sb-head">
+                <div class="logo-mini">
+                    <img src="imagenes/logo.png" alt="" class="logo-img">
+                    AFTER MUSIC
+                </div>
+                <button class="close" type="button" onclick="toggleMenu()">✕</button>
+            </div>
+
+            <nav class="sb-nav">
+                <a href="index.html?seccion=inicio">Inicio</a>
+                <a href="index.html?seccion=playlists">Explorar</a>
+                <a href="index.html?seccion=en-vivo">Música en Vivo</a>
+                <a href="formulario.html" aria-current="page">Suscribirse</a>
+            </nav>
+        </div>
+
+        <div class="menu-ecualizador">
+            <div class="bar-music"></div><div class="bar-music"></div>
+            <div class="bar-music"></div><div class="bar-music"></div>
+            <div class="bar-music"></div><div class="bar-music"></div>
+            <div class="bar-music"></div><div class="bar-music"></div>
+            <div class="bar-music"></div><div class="bar-music"></div>
+            <div class="bar-music"></div><div class="bar-music"></div>
+        </div>
+    </aside>
+
+    <header class="form-top">
+        <div class="form-top-left">
+            <button class="hamburger" type="button" onclick="toggleMenu()">☰</button>
+            <div class="form-brand">
+                <img src="portadas/logo.jpg" alt="">
+                <span>AFTER MUSIC</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container suscripcion-container">
+        <section class="suscripcion-intro">
+            <span class="eyebrow">ÚNETE A LA EXPERIENCIA</span>
+            <h1>La música se disfruta más contigo.</h1>
+            <p class="subtitle">Suscríbete a After Music y mantente al tanto de nuevos lanzamientos, playlists y experiencias musicales.</p>
+            <div class="beneficios">
+                <span><b>♪</b> Descubre música nueva</span>
+                <span><b>♫</b> Recibe novedades</span>
+                <span><b>✦</b> Explora tus artistas favoritos</span>
+            </div>
+        </section>
+
+        <section class="suscripcion-formulario">
+            <div class="form-heading">
+                <span class="form-kicker">AFTER MUSIC</span>
+                <h2>Crear suscripción</h2>
+                <p>Completa tus datos para formar parte de nuestra comunidad.</p>
+            </div>
+
+            <form id="formulario" novalidate>
+                <div class="campos-grid">
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Carlos" autocomplete="off" maxlength="100">
+                        <small class="error" id="error-nombre"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apellidoPaterno">Apellido paterno</label>
+                        <input type="text" id="apellidoPaterno" name="apellidoPaterno" placeholder="Ej. Pérez" autocomplete="off" maxlength="70">
+                        <small class="error" id="error-apellidoPaterno"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apellidoMaterno">Apellido materno</label>
+                        <input type="text" id="apellidoMaterno" name="apellidoMaterno" placeholder="Ej. García" autocomplete="off" maxlength="70">
+                        <small class="error" id="error-apellidoMaterno"></small>
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label>Fecha de nacimiento</label>
+                        <div class="fecha-selectores">
+                            <select id="diaNacimiento" name="diaNacimiento" aria-label="Día de nacimiento" required>
+                                <option value="">Día</option>
+                            </select>
+                            <select id="mesNacimiento" name="mesNacimiento" aria-label="Mes de nacimiento" required>
+                                <option value="">Mes</option>
+                                <option value="1">Enero</option><option value="2">Febrero</option>
+                                <option value="3">Marzo</option><option value="4">Abril</option>
+                                <option value="5">Mayo</option><option value="6">Junio</option>
+                                <option value="7">Julio</option><option value="8">Agosto</option>
+                                <option value="9">Septiembre</option><option value="10">Octubre</option>
+                                <option value="11">Noviembre</option><option value="12">Diciembre</option>
+                            </select>
+                            <select id="anioNacimiento" name="anioNacimiento" aria-label="Año de nacimiento" required>
+                                <option value="">Año</option>
+                            </select>
+                        </div>
+                        <small class="error" id="error-fechaNacimiento"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="edad">Edad</label>
+                        <input type="text" id="edad" name="edad" placeholder="Ej. 18" inputmode="numeric" autocomplete="off" maxlength="3">
+                        <small class="error" id="error-edad"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Número de tarjeta</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingresa tu número de tarjeta bancaria" inputmode="numeric" autocomplete="off" maxlength="16">
+                        <small class="error" id="error-telefono"></small>
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="text" id="email" name="email" placeholder="correo@ejemplo.com" autocomplete="off" maxlength="40">
+                        <small class="error" id="error-email"></small>
+                    </div>
+                </div>
+
+                <button class="btn-suscribir" type="submit">Suscribirme <span>→</span></button>
+                <p class="exito" id="mensaje-exito"></p>
+                <p class="privacidad">Al suscribirte, aceptas recibir novedades de After Music.</p>
+            </form>
+        </section>
+    </main>
+   <div id="alerta-exito" class="alerta-personalizada">
+    <div class="alerta-contenido">
+        <h2>¡Suscripción exitosa!</h2>
+        <p>Te has suscrito a AFTER MUSIC.</p>
+        <button type="button" onclick="cerrarAlerta()">Cerrar</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

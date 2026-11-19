@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFTER MUSIC</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sb-top">
+    <div class="sb-head"><div class="logo-mini"> <img src="imagenes/logo.png" alt="" class="logo-img">AFTER MUSIC
+</div><button class="close" onclick="toggleMenu()">✕</button></div>
+
+    <nav class="sb-nav">
+     <a onclick="mostrar('inicio')">Inicio</a>
+     <a onclick="mostrar('playlists')">Explorar</a>
+     <a onclick="mostrar('en-vivo')">Música en Vivo</a>
+     <a href="formulario.html">Suscribirse</a>
+
+    </nav>
+  </div>
+    <!-- Nueva estructura mas densa: 12 barras animadas -->
+  <div class="menu-ecualizador">
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+    <div class="bar-music"></div>
+  </div>
+</aside>
+
+<header class="top">
+  <div class="top-l"><button class="hamburger" onclick="toggleMenu()">☰</button><div class="nombre">
+  <img src="portadas/logo.jpg" alt="">AFTER MUSIC</div></div>
+  <div class="top-r"> <div class="buscador-contenedor">
+      <span class="buscador-icono">🔍</span>
+      <input type="text" id="input-busqueda" placeholder="Buscar canciones" oninput="filtrarContenido()">
+    </div>
+  </div>
+</header>
+
+<div class="layout sin-player" id="appLayout">
+  <main class="main">
+    <section class="hero">
+      <div class="hero-text"><h1>Bienvenido a AFTER MUSIC</h1><div class="hero-stats"><span></span><span></span><span></span></div></div>
+<div class="hero-art">
+  <!-- NOTAS MUSICALES FLOTANTES -->
+  <span class="nota-flotante n1">♪</span>
+  <span class="nota-flotante n2">♫</span>
+  <span class="nota-flotante n3">♪</span>
+  <span class="nota-flotante n6">♬</span>
+
+  <!-- Tu disco original continúa aquí abajo exactamente igual -->
+  <div class="disc"><div class="disc-center"><div class="hole"></div></div><div class="disc-ice"></div></div>
+</div>
+
+    </section>
+    <div id="zona-contenido">
+      <div id="vista-inicio">
+       <div class="sec-head">
+      <h2 id="titulo-seccion-busqueda">Recomendaciones</h2>
+      </div>
+    
+       <div class="list-songs" id="contenedor-lista-busqueda">
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,0)"><div class="song-cover"></div><div><b>Locos</b><span>León Larregui</span></div><em>Rock alternativo</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,1)"><div class="song-cover"></div><div><b>Take on me</b><span>a-ha</span></div><em>Rock</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,2)"><div class="song-cover"></div><div><b>Freaks</b><span>Surf Curse</span></div><em>Rock alternativo</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,3)"><div class="song-cover"></div><div><b>Sign of The Times</b><span>Harry Styles</span></div><em>Pop Rock</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,4)"><div class="song-cover"></div><div><b>Feel</b><span>Robbie Williams</span></div><em> Pop Rock</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,5)"><div class="song-cover"></div><div><b>The reason</b><span>Hoobastank</span></div><em>Rock alternativo</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,6)"><div class="song-cover"></div><div><b>This Love</b><span>Maroon 5</span></div><em>Pop Rock</em></div>
+          <div class="song-row" onclick="tocarCancion('recomendaciones',0,7)"><div class="song-cover"></div><div><b>Freaking Out The Neighborhood</b><span>Mac DeMarco</span></div><em>Rock</em></div>
+                             <div id="sin-resultados" class="alerta-busqueda-vacia">
+            No se encontraron resultados para esta busqueda.
+        </div>
+        </div>
+        </div>
+
+      <div id="vista-playlists" class="vista-oculta">
+  <div class="sec-head"><h2>Géneros</h2></div>
+  <div class="grid">
+    <article class="card card-profundo" onclick="verArtistas('electronica')">
+      <div class="card-content"><h3>Electronica</h3></div>
+    </article>
+    <article class="card card-ventisca" onclick="verArtistas('rock_alt')">
+      <div class="card-content"><h3>Rock alternativo</h3></div>
+    </article>
+    <article class="card card-amanecer" onclick="verArtistas('rock')">
+      <div class="card-content"><h3>Rock</h3></div>
+    </article>
+    <article class="card card-caifanes" onclick="verArtistas('rock_esp')">
+      <div class="card-content"><h3>Rock en español</h3></div>
+    </article>
+  </div>
+</div>  
+      
+      <!-- NUEVA VISTA: ARTISTAS -->
+      <div id="vista-artistas" class="vista-oculta">
+        <div class="sec-head"><h2 id="titulo-artistas">Artistas</h2><button onclick="mostrar('playlists')">← Volver a Géneros</button></div>
+        <div id="lista-artistas" class="grid"></div>
+      </div>
+
+      <!-- NUEVA VISTA: CANCIONES -->
+      <div id="vista-canciones" class="vista-oculta">
+        <div class="sec-head"><h2 id="titulo-canciones">Canciones</h2><button onclick="volverArtistas()">← Volver a Artistas</button></div>
+        <div id="lista-canciones" class="list-songs"></div>
+      </div>
+
+      <div id="vista-biblioteca" class="vista-oculta">
+        <div class="sec-head"><h2>Biblioteca</h2><button onclick="mostrar('inicio')">← Volver</button></div>
+        <div id="lista-bib"></div>
+      </div>
+    </div> 
+
+     <!-- VISTA: EN VIVO -->
+<div id="vista-en-vivo" class="vista-oculta">
+  <section class="sec-head">
+    <h2>Musica en vivo</h2>
+  </section>
+
+  <!-- Rejilla en 2 columnas -->
+  <div class="grid grid-envivo">
+    
+    <!-- Transmisión 1 -->
+    <div class="card tarjeta-video-envivo">
+      <div class="contenedor-video-flex">
+        <!-- Sin 'controls' y sin 'muted' para que responda al volumen del dispositivo -->
+        <video id="video-glaciar" class="video-objeto" src="videos/envivo1.mp4" playsinline
+               onplay="document.getElementById('btn-glaciar').innerText='⏸'"
+               onpause="document.getElementById('btn-glaciar').innerText='▶'"></video>
+      </div>
+      <div class="pie-tarjeta-video">
+        <div>
+          <h3>Nirvana - The Man Who Sold The World (Live On MTV Unplugged_ 1993 _ Unedited)</h3>
+        </div>
+        <div class="grupo-botones-video">
+          <!-- Botón de Pantalla Completa Aislado -->
+          <button class="btn-pantalla-completa" onclick="document.getElementById('video-glaciar').requestFullscreen();" title="Pantalla completa">⛶</button>
+          <!-- Botón Play/Pause -->
+          <button id="btn-glaciar" class="btn-control-video" onclick="const v = document.getElementById('video-glaciar'); v.paused ? v.play() : v.pause();">▶</button>
+        </div>
+      </div>
+    </div>
+
+      <div class="card tarjeta-video-envivo">
+      <div class="contenedor-video-flex">
+        <!-- Sin 'controls' y sin 'muted' para que responda al volumen del dispositivo -->
+        <video id="video-glaciar" class="video-objeto" src="videos/envivo2.mp4" playsinline
+               onplay="document.getElementById('btn-glaciar').innerText='⏸'"
+               onpause="document.getElementById('btn-glaciar').innerText='▶'"></video>
+      </div>
+      <div class="pie-tarjeta-video">
+        <div>
+          <h3>León Larregui - Locos_(En vivo)</h3>
+        </div>
+        <div class="grupo-botones-video">
+          <!-- Botón de Pantalla Completa Aislado -->
+          <button class="btn-pantalla-completa" onclick="document.getElementById('video-glaciar').requestFullscreen();" title="Pantalla completa">⛶</button>
+          <!-- Botón Play/Pause -->
+          <button id="btn-glaciar" class="btn-control-video" onclick="const v = document.getElementById('video-glaciar'); v.paused ? v.play() : v.pause();">▶</button>
+        </div>
+      </div>
+    </div>
+
+  <div class="card tarjeta-video-envivo">
+      <div class="contenedor-video-flex">
+        <!-- Sin 'controls' y sin 'muted' para que responda al volumen del dispositivo -->
+        <video id="video-glaciar" class="video-objeto" src="videos/envivo3.mp4" playsinline
+               onplay="document.getElementById('btn-glaciar').innerText='⏸'"
+               onpause="document.getElementById('btn-glaciar').innerText='▶'"></video>
+      </div>
+      <div class="pie-tarjeta-video">
+        <div>
+          <h3>Faded_ (live) - Alan Walker ft Iselin Solheim</h3>
+        </div>
+        <div class="grupo-botones-video">
+          <!-- Botón de Pantalla Completa Aislado -->
+          <button class="btn-pantalla-completa" onclick="document.getElementById('video-glaciar').requestFullscreen();" title="Pantalla completa">⛶</button>
+          <!-- Botón Play/Pause -->
+          <button id="btn-glaciar" class="btn-control-video" onclick="const v = document.getElementById('video-glaciar'); v.paused ? v.play() : v.pause();">▶</button>
+        </div>
+      </div>
+    </div>
+
+      <div class="card tarjeta-video-envivo">
+      <div class="contenedor-video-flex">
+        <!-- Sin 'controls' y sin 'muted' para que responda al volumen del dispositivo -->
+        <video id="video-glaciar" class="video-objeto" src="videos/envivo4.mp4" playsinline
+               onplay="document.getElementById('btn-glaciar').innerText='⏸'"
+               onpause="document.getElementById('btn-glaciar').innerText='▶'"></video>
+      </div>
+      <div class="pie-tarjeta-video">
+        <div>
+          <h3>Zoé - Labios Rotos (MTV Unplugged)</h3>
+        </div>
+        <div class="grupo-botones-video">
+          <!-- Botón de Pantalla Completa Aislado -->
+          <button class="btn-pantalla-completa" onclick="document.getElementById('video-glaciar').requestFullscreen();" title="Pantalla completa">⛶</button>
+          <!-- Botón Play/Pause -->
+          <button id="btn-glaciar" class="btn-control-video" onclick="const v = document.getElementById('video-glaciar'); v.paused ? v.play() : v.pause();">▶</button>
+        </div>
+      </div>
+    </div>
+    <!-- Transmisión 2 -->
+    <div class="card tarjeta-video-envivo">
+      <div class="contenedor-video-flex">
+        <!-- Sin 'controls' y sin 'muted' para que responda al volumen del dispositivo -->
+        <video id="video-ventisca" class="video-objeto" src="videos/envivo5.mp4" playsinline
+               onplay="document.getElementById('btn-ventisca').innerText='⏸'"
+               onpause="document.getElementById('btn-ventisca').innerText='▶'"></video>
+      </div>
+      <div class="pie-tarjeta-video">
+        <div>
+          <h3>Coldplay - Viva la Vida (live)</h3>
+        </div>
+        <div class="grupo-botones-video">
+          <!-- Botón de Pantalla Completa Aislado -->
+          <button class="btn-pantalla-completa" onclick="document.getElementById('video-ventisca').requestFullscreen();" title="Pantalla completa">⛶</button>
+          <!-- Botón Play/Pause -->
+          <button id="btn-ventisca" class="btn-control-video" onclick="const v = document.getElementById('video-ventisca'); v.paused ? v.play() : v.pause();">▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</main>
+
+  <aside class="player-panel" id="playerPanel" class="vista-oculta">
+  <video class="fondo-video" muted playsinline></video>
+  <audio id="audio"></audio>
+  <button onclick="cerrarPlayer()" class="btn-cerrar-reproductor">✕</button>
+   <p class="lab" class="">• REPRODUCIENDO AHORA</p>
+    <div class="p-cover" id="pCover">
+      <!-- La imagen de cada canción se carga sola desde la carpeta "imagenes/" (instrucciones al final de script.js) -->
+      <img class="p-img" id="pImg" alt=""></div>
+      <h3 id="pTitulo"></h3>
+    <p class="muted" id="pArtista"></p>
+    <div class="time"><span>1</span><div class="progress"><div class="progress-bar"><i></i></div></div><span>3:42</span></div>
+    <div class="controls"><button onclick="prev()">⏮</button><button class="play-big" onclick="playPause()">⏸</button><button onclick="next()">⏭</button></div>
+  </aside>
+  </div>
+
+ <!-- PIE DE PÁGINA CENTRADO CON OCULTACIÓN FORZADA -->
+<div class="pie-pagina-creditos">
+    @2026 PROYECTO AFTER MUSIC-ANGEL MIGUEL MARTINEZ HERRERA
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
