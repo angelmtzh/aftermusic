@@ -11,7 +11,7 @@ const D={
     {n:'Nirvana',s:['The man who sold the world','Lithium','Sliver','Come As You Are','Dumb']},
     {n:'Radiohead',s:['Creep','Karma Police','High and Dry']},
     {n:'Queen',s:['Cool Cat','Bohemian Rhapsody','A Kind of Magic','Radio Ga Ga']},
-    {n:'Arctic Monkeys',s:['Do I Wanna Know','505','Fluorescent Adolescent']}
+    {n:'Arctic Monkeys',s:['Do I Wanna Know','Knee Socks','Fluorescent Adolescent']}
   ],
   rock_alt:[
     {n:'León Larregui',s:['Locos','Brillas']},
