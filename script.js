@@ -50,7 +50,7 @@ function tocarCancion(g,i,j){
         l.classList.remove('sin-player');
         if (au.paused) {
             au.play().catch(e => console.log("Error al reproducir:", e));
-            document.querySelector('.play-big').innerText = '⏸';
+            document.querySelector('.play-big').innerText = '∣∣';
         }
         return; 
     }
@@ -83,7 +83,7 @@ function tocarCancion(g,i,j){
 
     au.play().catch(e => {});
     
-    document.querySelector('.play-big').innerText='⏸';
+    document.querySelector('.play-big').innerText='∣∣';
     au.onended = function() { next(); };
 
     au.ontimeupdate = function() {
@@ -107,7 +107,7 @@ function tocarCancion(g,i,j){
 
 function playPause() {
     const btn = document.querySelector('.play-big');
-    if (au.paused) { au.play(); if(btn) btn.innerText = '⏸'; } 
+    if (au.paused) { au.play(); if(btn) btn.innerText = '∣∣'; } 
     else { au.pause(); if(btn) btn.innerText = '▶'; }
 }
 
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (video && btnPlay) {
             // Aseguramos que al cargar la página el botón tenga el estado inicial correcto
-            btnPlay.innerText = video.paused ? '▶' : '⏸';
+            btnPlay.innerText = video.paused ? '▶' : '∣∣';
 
             btnPlay.onclick = (evento) => {
                 evento.preventDefault();
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Controlamos la reproducción y cambiamos el texto del botón del video actual
                 if (video.paused) {
                     video.play()
-                        .then(() => { btnPlay.innerText = '⏸'; })
+                        .then(() => { btnPlay.innerText = '∣∣'; })
                         .catch(e => console.error("Error al reproducir el video:", e));
                 } else {
                     video.pause();
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Control visual extra: si el video se pausa por fuera (o termina), el botón vuelve a '▶'
             video.onpause = () => { btnPlay.innerText = '▶'; };
-            video.onplay = () => { btnPlay.innerText = '⏸'; };
+            video.onplay = () => { btnPlay.innerText = '∣∣'; };
         }
 
         // Control del botón de Pantalla Completa
